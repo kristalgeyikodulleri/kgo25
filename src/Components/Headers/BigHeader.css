@@ -1,0 +1,51 @@
+.custom-border {
+    position: relative;
+}
+
+.custom-border::after {
+    content: '';
+    border-top: 2px solid #f0f0f0;
+    border-left: 2px solid #f0f0f0;
+    border-right: 2px solid #f0f0f0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 25px;
+    transition: all .7s ease-in-out;
+}
+
+.custom-border::before {
+    content: '';
+    border-bottom: 2px solid #f0f0f0;
+    border-left: 2px solid #f0f0f0;
+    border-right: 2px solid #f0f0f0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 25px;
+    transition: all .7s ease-in-out;
+}
+
+.custom-border:hover::before {
+    bottom: -5px;
+    left: -5px;
+    right: -5px;
+}
+
+.custom-border:hover::after {
+    top: -5px;
+    left: -5px;
+    right: -5px;
+}
+
+
+@media screen and (max-width: 768px){
+    .custom-border::after {
+        height: 15px;
+    }
+    .custom-border::before {
+        height: 15px;
+    }
+}

@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Whisper&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* Hide scrollbar for IE, Edge and Firefox */
+    .no-scrollbar {
+        -ms-overflow-style: none;
+        /* IE and Edge */
+        scrollbar-width: none;
+        /* Firefox */
+    }
+}
+
+* {
+    font-family: "Montserrat", sans-serif !important;
+    color: white;
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.sponsor-title {
+    font-family: "Whisper", cursive !important;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.img-after-border {
+    position: relative;
+    display: inline-block;
+}
+
+.img-after-border::after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    border: 2px solid white;
+    bottom: -10px;
+    left: 0;
+    z-index: -1;
+    border-radius: 50%;
+}
+
+@keyframes smooth-appear {
+    from {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+
+
+    to {
+        opacity: .9
+    }
+}
+
+.smooth-appear {
+    animation-duration: 1.3s;
+    animation-fill-mode: both;
+    animation-name: smooth-appear;
+    animation-timing-function: ease;
+}
+
+@keyframes smooth-border {
+    from {
+        transform: translateX(-600px);
+    }
+
+    20% {
+        transform: translateX(0);
+    }
+
+    80% {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(600px);
+    }
+}
+
+@keyframes disappear {
+    from {
+        opacity: 1;
+        height: 100%;
+    }
+
+    80% {
+        opacity: .8;
+        height: 100%;
+    }
+
+    to {
+        opacity: .75;
+        height: 100%;
+    }
+
+}
+
+.disappear {
+    animation-duration: 5s;
+    animation-fill-mode: both;
+    animation-name: disappear;
+    animation-timing-function: ease;
+}
+
+.smooth-border::after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    border: 2px solid white;
+    top: 40px;
+    left: 0;
+    z-index: -1;
+    animation-duration: 3s;
+    animation-fill-mode: both;
+    animation-play-state: running;
+    animation-timing-function: ease-in-out;
+    animation-name: smooth-border;
+}
+
+.left-border::before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 2px;
+    border: 2px solid white;
+    bottom: 0;
+    left: 0;
+    z-index: 20;
+}
+
+.grayer-p>p {
+    font-weight: lighter;
+    color: #e5e5e5;
+    text-shadow: black 0px 1px 0px;
+}
+
+.animate-fadeOut {
+    animation: fadeOut ease 3s;
+    -webkit-animation: fadeIn ease 3s;
+    -moz-animation: fadeIn ease 3s;
+    -o-animation: fadeIn ease 3s;
+    -ms-animation: fadeIn ease 3s;
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        display: none;
+    }
+}
+
+.animate-none {
+    animation: none;
+}
+
+.text-black-anc p {
+    color: black;
+}
+
+@media screen and (max-width: 768px) {
+    .popup-content {
+        width: 80% !important;
+    }
+
+}
