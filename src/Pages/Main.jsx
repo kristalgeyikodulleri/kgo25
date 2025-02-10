@@ -10,10 +10,11 @@ import awardImage from "../images/award.png";
 export default function App(props) {
     return (
         <>
+            {/* Navbar'ı sabit ve şeffaf tut */}
+            <Navbar className="fixed top-0 w-full z-50 bg-transparent transition-all duration-300 ease-in-out" />
+
             {/* Arka plan video katmanı */}
-            <div
-                className="fixed -z-10 flex items-center justify-center transition-all duration-500 ease-in-out h-screen w-screen"
-            >
+            <div className="fixed -z-10 flex items-center justify-center transition-all duration-500 ease-in-out h-screen w-screen">
                 <video
                     autoPlay
                     loop
@@ -27,11 +28,7 @@ export default function App(props) {
             </div>
 
             {/* Üst kısım */}
-            <Navbar transparent />
-            <div
-                className="overflow-hidden w-dvw h-dvh flex flex-col justify-center items-center gap-6"
-                id={props.name}
-            >
+            <div className="overflow-hidden w-dvw h-dvh flex flex-col justify-center items-center gap-6" id={props.name}>
                 <img
                     src={largeLogo}
                     alt=""
@@ -52,24 +49,8 @@ export default function App(props) {
                 </p>
             </div>
 
-            {/* “Hikâyemiz” bölümü – üst bölümle aynı şeffaf video arka planını koruyor */}
-            <Navbar />
-            <div
-                className="
-                    overflow-hidden 
-                    w-dvw 
-                    min-h-dvh 
-                    flex 
-                    flex-col 
-                    items-center 
-                    justify-center 
-                    px-12 
-                    lg:px-24 
-                    py-24
-                    text-white
-                "
-                id={props.name}
-            >
+            {/* “Hikâyemiz” bölümü */}
+            <div className="overflow-hidden w-dvw min-h-dvh flex flex-col items-center justify-center px-12 lg:px-24 py-24 text-white" id={props.name}>
                 <BigHeader>HİKAYEMİZ</BigHeader>
 
                 <div className="flex flex-row w-full items-center justify-center flex-wrap h-full">
@@ -77,46 +58,15 @@ export default function App(props) {
                         <img src={awardImage} alt="" className="scale-150" />
                     </div>
 
-                    {/* İsterseniz bu kısma da hafif bir siyah opak kutu ekleyebilirsiniz */}
-                    <div
-                        className="
-                            mt-4 
-                            flex 
-                            flex-col 
-                            gap-6 
-                            md:w-3/5 
-                            items-center 
-                            justify-center 
-                            left-border 
-                            relative 
-                            px-4 
-                            p-6 
-                            rounded-lg
-                            bg-black 
-                            bg-opacity-50
-                        "
-                    >
+                    <div className="mt-4 flex flex-col gap-6 md:w-3/5 items-center justify-center left-border relative px-4 p-6 rounded-lg bg-black bg-opacity-50">
                         <p>
-                            Geyikler, doğanın sonsuz döngüsünün kudretli sembolüdür ve boynuzları
-                            sonsuzluğun, yenilenmenin, yeni başlangıçların ve umudun sembolü olarak
-                            kabul edilir. Kristal Geyik Ödülleri, bu sembolizmi zarif bir şekilde
-                            yansıtarak insanları büyülü bir törene davet eder.
+                            Geyikler, doğanın sonsuz döngüsünün kudretli sembolüdür ve boynuzları sonsuzluğun, yenilenmenin, yeni başlangıçların ve umudun sembolü olarak kabul edilir.
                         </p>
                         <p>
-                            Kristal Geyik Ödülleri, bu eşsiz sembolizmi zarif birer yansıması olarak
-                            sunar. Bu ödüller adeta sonsuzluğun kucakladığı bir anın kristalleşmiş
-                            hali gibi görünür. Boynuzları gökyüzüne uzanır ve geleceğin umuduyla
-                            parıldar. Boynuzların eşsiz kıvrımları yaşamın sürekli yenilenen akışını
-                            sembolize eder.
+                            Kristal Geyik Ödülleri, bu sembolizmi zarif bir şekilde yansıtarak insanları büyülü bir törene davet eder.
                         </p>
                         <p>
-                            Her bir ödül, kristalin içindeki farklı renklerin oyununu anımsatır
-                            gibi izleyicileri büyülü bir yolculuğa çıkarır. Kristal Geyik
-                            Ödülleri, doğanın ve yaratıcılığın eşsiz birleşimini yansıtarak
-                            insanları bu görkemli ve anlamlı etkinliğe katılmaya davet eder. Bu
-                            ödüller, geyiklerin doğanın döngüsündeki güçlü sembolünü yansıtarak sanat
-                            ve başarının kutlanmasını sağlar, aynı zamanda izleyicilere ilham verip
-                            yaratıcılığın zirvesini yaşatır.
+                            Bu ödüller, sanat ve başarının kutlanmasını sağlar, aynı zamanda izleyicilere ilham verip yaratıcılığın zirvesini yaşatır.
                         </p>
                     </div>
                 </div>
@@ -126,16 +76,8 @@ export default function App(props) {
 }
 
 const Completionist = ({ props }) => (
-    <h2
-        className={`text-xl md:text-2xl lg:text-3xl font-bold !hover:opacity-100 text-[#ffffff] opacity-90 ${
-            !props.isLoaded && ' disappear'
-        }`}
-    >
-        <a
-            href="https://form.jotform.com/240972880319969"
-            target="_blank"
-            referrerPolicy="no-referrer"
-        >
+    <h2 className={`text-xl md:text-2xl lg:text-3xl font-bold text-[#ffffff] opacity-90 ${!props.isLoaded && 'disappear'}`}>
+        <a href="https://form.jotform.com/240972880319969" target="_blank" referrerPolicy="no-referrer">
             Oylamaya katıldığınız için teşekkür ederiz!
         </a>
     </h2>
@@ -147,17 +89,7 @@ const renderer = ({ days, hours, minutes, seconds, completed, props }) => {
         return <Completionist props={props} />;
     } else {
         return (
-            <span
-                className="
-                    text-1xl 
-                    md:text-2xl 
-                    lg:text-3xl 
-                    font-bold 
-                    text-[#ffffff] 
-                    opacity-90 
-                    italic
-                "
-            >
+            <span className="text-1xl md:text-2xl lg:text-3xl font-bold text-[#ffffff] opacity-90 italic">
                 {days} Gün {hours} Saat {minutes} Dakika {seconds} Saniye
             </span>
         );
